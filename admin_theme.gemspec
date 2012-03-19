@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Jared Howard"]
   s.email       = ["jared@howardpants.com"]
   s.homepage    = "https://github.com/jaredhoward/admin-theme"
-  s.summary     = "A gem to add styling that of ActiveAdmin and maybe other in the future."
-  s.description = "A gem to add styling that of ActiveAdmin and maybe other in the future."
+  s.summary     = "A gem to add styling that of ActiveAdmin."
+  s.description = "AdminTheme is an Engine based gem that is used to have the same styling of ActiveAdmin without all the clutter."
 
   s.files         = `git ls-files`.split("\n")
   s.extra_rdoc_files = ['README.rdoc']
@@ -19,4 +19,6 @@ Gem::Specification.new do |s|
   s.licenses = ['MIT']
 
   s.add_dependency "rails", "~> 3.2.0"
+  s.add_dependency "jquery-rails"
+  s.add_dependency "kaminari"
 end
