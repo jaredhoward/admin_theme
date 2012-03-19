@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="robots" content="noindex, nofollow">
-  <title><%= yield(:page_title) || 'Net Media Group: Leads Application Administration' %></title>
+  <title><%= content_for?(:page_title) ? yield(:page_title) : 'Net Media Group: Leads Application Administration' %></title>
   <%= stylesheet_link_tag    "admin_theme", :media => "all" %>
   <%= javascript_include_tag "admin_theme" %>
   <%= csrf_meta_tags %>
@@ -14,7 +14,7 @@
     <div id="header">
       <h1 id="site_title">LeadApp Administration</h1>
       <%= navigation_builder(navigation_array) %>
-      <p id="utility_nav"><span class="current_user">jhoward@netmediagroup.com</span><a href="/admin/logout" data-method="get">Logout</a></p>
+      <%= utility_nav %>
     </div>
     <div id="title_bar">
 <% if content_for?(:breadcrumbs) -%>
@@ -51,7 +51,7 @@
 <% end -%>
     </div>
     <div id="footer">
-      <p>You are running Rails in the <strong><%= Rails.env %></strong> environment.</p>
+      <p>Rails is running in the <strong><%= Rails.env %></strong> environment.</p>
     </div>
   </div>
 </body>

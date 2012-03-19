@@ -1,5 +1,17 @@
 module ActiveAdminHelper
 
+  def utility_nav
+    if defined?(::Devise)
+      devise_scope = Devise.default_scope
+      if send(:"#{Devise.mappings[devise_scope].singular}_signed_in?")
+        content_tag(:p, :id => 'utility_nav') do
+          content_tag(:span, send(:"current_#{Devise.mappings[devise_scope].singular}").email, :class => 'current_user') +
+          link_to('Logout', send(:"destroy_#{Devise.mappings[devise_scope].singular}_session_path"), :method => Devise.mappings[devise_scope].sign_out_via)
+        end
+      end
+    end
+  end
+
   def sidebar_associations_builder(associations_array)
     content = ''.html_safe
     associations_array.each do |association|
