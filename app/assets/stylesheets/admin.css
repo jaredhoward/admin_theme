@@ -1,0 +1,11 @@
+/*
+ *= require active_admin
+*/
+
+form fieldset > ol > li.boolean label { margin-left: 20%; margin-right: 10px; padding-left: 0; padding-right: 0; width: auto; }
+
+table tbody td span.handle { background: url("/assets/admin/sort_handle.png") no-repeat scroll 0 0 transparent; cursor: move; display: table; height: 16px; width: 16px; }
+table tbody td.attr span.handle { padding-left: 20px; height: auto; width: auto; }
+
+table.index_table td .boolean, .attributes_table table td .boolean, .panel_contents table td .boolean { font-size: 0.9em; letter-spacing: 0.1em; text-transform: uppercase; }
+table.index_table td pre, .attributes_table table td pre, .panel_contents table td pre { margin: 0; white-space: pre-wrap; }

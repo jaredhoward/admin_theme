@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="robots" content="noindex, nofollow">
+  <title><%= yield(:page_title) || 'Net Media Group: Leads Application Administration' %></title>
+  <%= stylesheet_link_tag    "admin", :media => "all" %>
+  <%= javascript_include_tag "admin" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="logged_in admin_<%= controller.controller_name %> <%= controller.action_name %>">
+  <div id="wrapper">
+    <div id="header">
+      <h1 id="site_title">LeadApp Administration</h1>
+      <%= navigation_builder([
+  ['Dashboard', [:admin]],
+  ['Sites', [:admin, :sites], @active_sites.collect {|site| [site.name, [:admin, site]] }],
+  ['Arrays', [:admin, :dynamic_arrays]]
+]) %>
+      <p id="utility_nav"><span class="current_user">jhoward@netmediagroup.com</span><a href="/admin/logout" data-method="get">Logout</a></p>
+    </div>
+    <div id="title_bar">
+<% if content_for?(:breadcrumbs) -%>
+      <div id="titlebar_left">
+        <%= yield(:breadcrumbs) %>
+      </div>
+<% end -%>
+<% if content_for?(:actions) -%>
+      <div id="titlebar_right">
+        <%= yield(:actions) %>
+      </div>
+<% end -%>
+    </div>
+<% unless flash.empty? -%>
+    <div class="flashes">
+<%   flash.each do |type, message| -%>
+      <div class="flash flash_<%= type %>"><%= message %></div>
+<%   end -%>
+    </div>
+<% end -%>
+    <div id="active_admin_content" class="with<%= 'out' unless content_for?(:sidebar) %>_sidebar">
+      <div id="main_content_wrapper">
+        <div id="main_content">
+<% if content_for?(:scopes) -%>
+          <%= yield(:scopes) %>
+<% end -%>
+          <%= yield %>
+        </div>
+      </div>
+<% if content_for?(:sidebar) -%>
+      <div id="sidebar">
+        <%= yield(:sidebar) %>
+      </div>
+<% end -%>
+    </div>
+    <div id="footer">
+      <p>You are running Rails in the <strong><%= Rails.env %></strong> environment.</p>
+    </div>
+  </div>
+</body>
+</html>
