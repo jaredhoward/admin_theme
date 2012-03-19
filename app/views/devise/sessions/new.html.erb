@@ -1,0 +1,26 @@
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <fieldset class="inputs">
+    <ol>
+      <li class="email required" id="user_email_input">
+        <%= f.label :email, "Email#{required_mark}".html_safe %>
+        <%= f.email_field :email, :maxlength => 255 %>
+      </li>
+      <li class="password optional" id="user_password_input">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </li>
+<% if devise_mapping.rememberable? -%>
+      <li class="boolean optional" id="user_remember_me_input">
+        <%= f.label :remember_me, "#{f.check_box(:remember_me)}Remember me".html_safe %>
+      </li>
+<% end -%>
+    </ol>
+  </fieldset>
+  <fieldset class="buttons">
+    <ol>
+      <li class="commit"><%= f.submit "Login", :class => 'create' %></li>
+    </ol>
+  </fieldset>
+<% end %>
+
+<%= render "links" %>
