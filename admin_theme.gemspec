@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Jared Howard"]
   s.email       = ["jared@howardpants.com"]
-  s.homepage    = "https://github.com/jaredhoward/admin-theme"
+  s.homepage    = "https://github.com/jaredhoward/admin_theme"
   s.summary     = "A gem to add styling that of ActiveAdmin."
   s.description = "AdminTheme is an Engine based gem that is used to have the same styling of ActiveAdmin without all the clutter."
 
