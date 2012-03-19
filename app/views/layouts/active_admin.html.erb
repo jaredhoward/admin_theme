@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="robots" content="noindex, nofollow">
   <title><%= yield(:page_title) || 'Net Media Group: Leads Application Administration' %></title>
-  <%= stylesheet_link_tag    "admin", :media => "all" %>
-  <%= javascript_include_tag "admin" %>
+  <%= stylesheet_link_tag    "admin_theme", :media => "all" %>
+  <%= javascript_include_tag "admin_theme" %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -13,11 +13,7 @@
   <div id="wrapper">
     <div id="header">
       <h1 id="site_title">LeadApp Administration</h1>
-      <%= navigation_builder([
-  ['Dashboard', [:admin]],
-  ['Sites', [:admin, :sites], @active_sites.collect {|site| [site.name, [:admin, site]] }],
-  ['Arrays', [:admin, :dynamic_arrays]]
-]) %>
+      <%= navigation_builder(navigation_array) %>
       <p id="utility_nav"><span class="current_user">jhoward@netmediagroup.com</span><a href="/admin/logout" data-method="get">Logout</a></p>
     </div>
     <div id="title_bar">

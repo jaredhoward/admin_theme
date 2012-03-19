@@ -1,4 +1,4 @@
-module AdminHelper
+module AdminThemeHelper
 
   def navigation_builder(navigation_array, is_nested=false)
     nav_content = ''.html_safe
