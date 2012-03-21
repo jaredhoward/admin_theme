@@ -1,5 +1,9 @@
 module AdminThemeHelper
 
+  def admin_theme_application
+    AdminTheme.application
+  end
+
   def navigation_builder(navigation_array, is_nested=false)
     nav_content = ''.html_safe
     navigation_array.each do |nav|

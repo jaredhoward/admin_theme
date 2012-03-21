@@ -3,13 +3,13 @@
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <meta name="robots" content="noindex, nofollow">
-  <title><%= content_for?(:page_title) ? yield(:page_title) : 'LeadApp Administration Login' %></title>
+  <title><%= content_for?(:page_title) ? yield(:page_title) : "#{admin_theme_application.application_name} Login" %></title>
   <%= stylesheet_link_tag    "admin_theme", :media => "all" %>
   <%= javascript_include_tag "admin_theme" %>
   <%= csrf_meta_tags %>
 </head>
 
-<body class="logged_out new">
+<body class="logged_out admin_<%= controller.controller_name %> <%= controller.action_name %>">
   <div id="wrapper">
     <div id="content_wrapper">
 <% unless flash.empty? -%>
@@ -19,14 +19,12 @@
 <% end -%>
       <div id="active_admin_content">
         <div id="login">
-          <h2>LeadApp Administration Login</h2>
+          <h2><%= admin_theme_application.application_name %> Login</h2>
           <%= yield %>
         </div>
       </div>
     </div>
-    <div id="footer">
-      <p>Rails is running in the <strong><%= Rails.env %></strong> environment.</p>
-    </div>
+    <div id="footer"><%= content_for?(:footer) ? yield(:footer) : raw(admin_theme_application.footer) %></div>
   </div>
 </body>
 </html>

@@ -1,5 +1,19 @@
 require 'admin_theme/engine'
-# require 'admin_theme/railtie'
 
 module AdminTheme
+  autoload :Application, 'admin_theme/application'
+
+  # The instance of the configured application
+  @@application = ::AdminTheme::Application.new
+  mattr_accessor :application
+
+  class << self
+
+    # Gets called within the initializer
+    def setup
+      yield(application)
+    end
+
+  end
+
 end

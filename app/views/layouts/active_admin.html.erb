@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="robots" content="noindex, nofollow">
-  <title><%= content_for?(:page_title) ? yield(:page_title) : 'Net Media Group: Leads Application Administration' %></title>
+  <title><%= content_for?(:page_title) ? yield(:page_title) : admin_theme_application.application_name %></title>
   <%= stylesheet_link_tag    "admin_theme", :media => "all" %>
   <%= javascript_include_tag "admin_theme" %>
   <%= csrf_meta_tags %>
@@ -12,7 +12,7 @@
 <body class="logged_in admin_<%= controller.controller_name %> <%= controller.action_name %>">
   <div id="wrapper">
     <div id="header">
-      <h1 id="site_title">LeadApp Administration</h1>
+      <h1 id="site_title"><%= admin_theme_application.application_name %></h1>
       <%= navigation_builder(navigation_array) %>
       <%= utility_nav %>
     </div>
@@ -50,9 +50,7 @@
       </div>
 <% end -%>
     </div>
-    <div id="footer">
-      <p>Rails is running in the <strong><%= Rails.env %></strong> environment.</p>
-    </div>
+    <div id="footer"><%= content_for?(:footer) ? yield(:footer) : raw(admin_theme_application.footer) %></div>
   </div>
 </body>
 </html>
