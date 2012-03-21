@@ -45,7 +45,7 @@ module ActiveAdminHelper
   def index_table(collection, attributes=[], options={})
     options.reverse_merge!(entry_names(collection, options)) if options[:entry_name].nil? || options[:entries_name]
 
-    if collection.is_a?(ActiveRecord::Relation) && collection.methods.include?(:per)
+    if collection.is_a?(ActiveRecord::Relation) && (collection.methods & [:page, :per]).size == 2
       paginated_collection(collection, attributes, options)
     else
       table_content(collection, attributes, options)
