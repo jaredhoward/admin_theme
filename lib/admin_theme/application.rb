@@ -10,5 +10,7 @@ module AdminTheme
     # The content in the footer area.
     setting :footer, "<p>Rails is running in the <strong>#{Rails.env}</strong> environment.</p>"
 
+    setting :navigation_array, []
+
   end
 end
