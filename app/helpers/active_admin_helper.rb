@@ -216,7 +216,10 @@ module ActiveAdminHelper
       when 'boolean'
         hidden_field_tag(column, '0', :id => nil) +
         label_tag(column, check_box_tag(column, '1') + label_value)
-      # when 'date' then label_tag(column, label_value) + date_select(column, options)
+      # when 'date'
+      #   label_tag(column, label_value) + date_select(column, options)
+      when 'file'
+        label_tag(column, label_value) + file_field_tag(column, options)
       when 'select'
         select_options = options.extract!(:multiple, :disabled, :include_blank, :prompt)
         label_tag(column, label_value) + select_tag(column, collection, select_options, options)
@@ -230,7 +233,10 @@ module ActiveAdminHelper
       content = case type
       when 'boolean'
         form.label(column, form.check_box(column, options) + label_value)
-      when 'date' then form.label(column, label_value) + form.date_select(column, options)
+      when 'date'
+        form.label(column, label_value) + form.date_select(column, options)
+      when 'file'
+        form.label(column, label_value) + form.file_field(column, options)
       when 'grouped_select'
         group_method = options.delete(:group_method)
         group_label_method = options.delete(:group_label_method)
