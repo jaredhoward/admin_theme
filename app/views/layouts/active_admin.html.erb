@@ -9,7 +9,7 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body class="logged_in admin_<%= controller.controller_name %> <%= controller.action_name %>">
+<body class="logged_in <%= controller.controller_name %>_controller <%= controller.action_name %>_action">
   <div id="wrapper">
     <div id="header">
       <h1 id="site_title"><%= admin_theme_application.application_name %></h1>
