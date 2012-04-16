@@ -17,7 +17,10 @@ module ActiveAdminHelper
     associations_array.each do |association|
       content << content_tag(:div, association, :class => 'association')
     end
-    return content_tag(:div, content_tag(:h3, 'Associations') + content_tag(:div, content, :class => 'panel_contents'), :id => "associations_sidebar_section", :class => 'sidebar_section panel')
+    content_tag(:div, :id => "associations_sidebar_section", :class => 'sidebar_section panel') do
+      content_tag(:h3, 'Associations') +
+      content_tag(:div, content, :class => 'panel_contents')
+    end
   end
 
   def panel_attributes(object, attributes=[], options={})
