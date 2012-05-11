@@ -13,10 +13,10 @@ Gem::Specification.new do |s|
   s.description = "AdminTheme is an Engine based gem that is used to have the same styling of ActiveAdmin without all the clutter."
 
   s.files         = `git ls-files`.split("\n")
-  s.extra_rdoc_files = ['README.rdoc']
+  s.extra_rdoc_files = ['README.md']
   s.require_paths = ['lib']
 
-  s.licenses = ['MIT']
+  s.licenses = ['MIT-LICENSE']
 
   s.add_dependency "rails", "~> 3.2.0"
   s.add_dependency "jquery-rails"
