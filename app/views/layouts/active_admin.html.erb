@@ -13,7 +13,7 @@
   <div id="wrapper">
     <div id="header">
       <h1 id="site_title"><%= admin_theme_application.application_name %></h1>
-      <%= navigation_builder(content_for?(:navigation_array) ? yield(:page_title) : admin_theme_application.navigation_array) %>
+      <%= navigation_builder(content_for?(:navigation_array) ? yield(:navigation_array) : admin_theme_application.navigation_array) %>
       <%= utility_nav %>
     </div>
     <div id="title_bar">
